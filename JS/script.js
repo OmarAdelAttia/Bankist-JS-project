@@ -1,6 +1,6 @@
 'use strict';
-import * as el from './elements';
-import * as method from './functions';
+import * as el from './elements.js';
+import * as method from './functions.js';
 
 for (let i = 0; i < el.btnsOpenModal.length; i++)
   el.btnsOpenModal[i].addEventListener('click', method.openModal);
@@ -14,3 +14,9 @@ document.addEventListener('keydown', function (e) {
     method.closeModal();
   }
 });
+
+el.btnScrollTo.addEventListener('click', method.scrollToFeatures);
+
+// el.btnScrollTo.addEventListener('click', method.scrollToOperations);
+
+// el.btnScrollTo.addEventListener('click', method.scrollToTestimonials);
