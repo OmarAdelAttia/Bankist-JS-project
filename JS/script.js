@@ -13,4 +13,6 @@ document.addEventListener('keydown', method.keyDown);
 
 el.btnScrollTo.addEventListener('click', method.scrollToFeatures);
 
-document.querySelector('.nav__links').addEventListener('click', method.navScroll);
+el.navLinks.addEventListener('click', method.navScroll);
+
+el.tabsContainer.forEach( t => t.addEventListener('click', method.tabsOnClick));
