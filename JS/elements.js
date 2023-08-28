@@ -14,3 +14,5 @@ export const navLinks = document.querySelector('.nav__links');
 export const tabs = document.querySelectorAll('.operations__tab');
 export const tabsContent = document.querySelectorAll('.operations__content');
 export const tabsContainer = document.querySelectorAll('.operations__tab-container');
+
+export const nav = document.querySelector('.nav');

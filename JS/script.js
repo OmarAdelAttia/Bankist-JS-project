@@ -16,3 +16,7 @@ el.btnScrollTo.addEventListener('click', method.scrollToFeatures);
 el.navLinks.addEventListener('click', method.navScroll);
 
 el.tabsContainer.forEach( t => t.addEventListener('click', method.tabsOnClick));
+
+el.nav.addEventListener('mouseover', method.navMouseIn);
+
+el.nav.addEventListener('mouseout', method.navMouseOut)

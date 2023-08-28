@@ -37,6 +37,7 @@ export const navScroll = element => {
     }
 }
 
+// change tab
 export const tabsOnClick = e => {
     //declaration
     const clickedEl = e.target.closest('.operations__tab');
@@ -46,6 +47,24 @@ export const tabsOnClick = e => {
     el.tabs.forEach(tab => tab.classList.remove('operations__tab--active'));
     clickedEl.classList.add('operations__tab--active');
     // Activate content
-    el.tabsContent.forEach(content => console.log(content.classList.remove('operations__content--active')));
+    el.tabsContent.forEach(content => content.classList.remove('operations__content--active'));
     document.querySelector(`.operations__content--${clickedEl.dataset.tab}`).classList.add('operations__content--active');
 }
+
+// Menu fade animation
+export const handleHover = (e, opacity) => {
+    if (e.target.classList.contains('nav__link')) {
+        // declaration
+        const linkElement = e.target;
+        const siblings = linkElement.closest('.nav').querySelectorAll('.nav__link');
+        const logo = linkElement.closest('.nav').querySelector('img');
+        // controlling the opacity
+        siblings.forEach(element => element !== linkElement ? element.style.opacity = opacity : element.style.opacity = 1);
+        logo.style.opacity = opacity;
+    }
+}
+
+// passing "argument" into handler
+export const navMouseIn = e => handleHover(e, .5);
+
+export const navMouseOut = e => handleHover(e, 1);
