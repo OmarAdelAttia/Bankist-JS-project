@@ -17,6 +17,10 @@ el.navLinks.addEventListener('click', method.navScroll);
 
 el.tabsContainer.forEach( t => t.addEventListener('click', method.tabsOnClick));
 
+// Menu fade animation
 el.nav.addEventListener('mouseover', method.navMouseIn);
 
 el.nav.addEventListener('mouseout', method.navMouseOut)
+
+// sticky navigation
+window.addEventListener('scroll', method.widowScroll)

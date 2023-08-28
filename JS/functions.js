@@ -28,11 +28,11 @@ export const scrollToFeatures = function () {
 };
 
 // scroll from the targeted element using their id
-export const navScroll = element => {
-    element.preventDefault();
+export const navScroll = event => {
+    event.preventDefault();
     // Matching Strategy
-    if (element.target.classList.contains('nav__link')) {
-        const id = element.target.getAttribute('href');
+    if (event.target.classList.contains('nav__link')) {
+        const id = event.target.getAttribute('href');
         document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
     }
 }
@@ -67,4 +67,14 @@ export const handleHover = (e, opacity) => {
 // passing "argument" into handler
 export const navMouseIn = e => handleHover(e, .5);
 
+// passing "argument" into handler
 export const navMouseOut = e => handleHover(e, 1);
+
+// sticky navigation
+export const widowScroll = () => {
+    const initialCoords = el.section1.getBoundingClientRect();
+    window.scrollY > initialCoords.top ? el.nav.classList.add('sticky') : el.nav.classList.remove('sticky');
+}
+// bad performance on mobile with scroll 
+
+// 
