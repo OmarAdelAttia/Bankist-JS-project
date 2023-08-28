@@ -71,10 +71,14 @@ export const navMouseIn = e => handleHover(e, .5);
 export const navMouseOut = e => handleHover(e, 1);
 
 // sticky navigation
-export const widowScroll = () => {
-    const initialCoords = el.section1.getBoundingClientRect();
-    window.scrollY > initialCoords.top ? el.nav.classList.add('sticky') : el.nav.classList.remove('sticky');
-}
+// export const widowScroll = () => {
+//     const initialCoords = el.section1.getBoundingClientRect();
+//     window.scrollY > initialCoords.top ? el.nav.classList.add('sticky') : el.nav.classList.remove('sticky');
+// }
 // bad performance on mobile with scroll 
 
-// 
+// sticky navigation
+export const stickyNav = entries => {
+    const [entry] = entries;
+    entry.isIntersecting ? el.nav.classList.remove('sticky') : el.nav.classList.add('sticky');
+}

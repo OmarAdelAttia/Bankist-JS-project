@@ -20,7 +20,17 @@ el.tabsContainer.forEach( t => t.addEventListener('click', method.tabsOnClick));
 // Menu fade animation
 el.nav.addEventListener('mouseover', method.navMouseIn);
 
-el.nav.addEventListener('mouseout', method.navMouseOut)
+// Menu fade animation
+el.nav.addEventListener('mouseout', method.navMouseOut);
+
+// // sticky navigation
+// window.addEventListener('scroll', method.widowScroll);
 
 // sticky navigation
-window.addEventListener('scroll', method.widowScroll)
+const headerObserver = new IntersectionObserver(method.stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${el.navHeight}px`
+});
+
+headerObserver.observe(el.header);

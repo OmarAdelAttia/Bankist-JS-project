@@ -16,3 +16,6 @@ export const tabsContent = document.querySelectorAll('.operations__content');
 export const tabsContainer = document.querySelectorAll('.operations__tab-container');
 
 export const nav = document.querySelector('.nav');
+
+export const header = document.querySelector('.header');
+export const navHeight = nav.getBoundingClientRect().height;
