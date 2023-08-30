@@ -1,29 +1,26 @@
 import * as el from './elements.js'
 
 // Hide Modal
-export const openModal = function () {
+export const openModal = () => {
     el.modal.classList.remove('hidden');
     el.overlay.classList.remove('hidden');
 };
 
 // Display Modal
-export const closeModal = function () {
+export const closeModal = () => {
     el.modal.classList.add('hidden');
     el.overlay.classList.add('hidden');
 };
 
-export const keyDown = function (e) {
-    if (e.key === 'Escape' && !el.modal.classList.contains('hidden')) {
-        closeModal();
-    }
+// esc btn
+export const keyDown = (e) => {
+    if (e.key === 'Escape' && !el.modal.classList.contains('hidden')) closeModal();
 }
 
 // page navigation
 
 // scroll to Features
-export const scrollToFeatures = function () {
-    el.section1.scrollIntoView({ behavior: 'smooth' });
-};
+export const scrollToFeatures = () => el.section1.scrollIntoView({ behavior: 'smooth' });
 
 // scroll from the targeted element using their id
 export const navScroll = event => {
@@ -89,6 +86,7 @@ export const revealSections = (entries, observer) => {
     observer.unobserve(entry.target);
 }
 
+// lazy loading imgs
 export const loadImg = (entries, observer) => {
     const [entry] = entries;
     if (!entry.isIntersecting) return;
@@ -99,3 +97,6 @@ export const loadImg = (entries, observer) => {
     // stop observe
     observer.unobserve(entry.target);
 }
+
+// slider
+export const slideDirection = (currentSlide = 0) => el.slides.forEach((slide, index) => (slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`));
