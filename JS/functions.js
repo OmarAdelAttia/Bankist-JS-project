@@ -82,3 +82,11 @@ export const stickyNav = entries => {
     const [entry] = entries;
     entry.isIntersecting ? el.nav.classList.remove('sticky') : el.nav.classList.add('sticky');
 }
+
+// reveal sections
+export const revealSections = (entries, observer) => {
+    const [entry] = entries;
+    if (!entry.isIntersecting) return;
+    entry.target.classList.remove('section--hidden');
+    observer.unobserve(entry.target);
+}

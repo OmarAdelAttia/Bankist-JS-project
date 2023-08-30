@@ -34,3 +34,14 @@ const headerObserver = new IntersectionObserver(method.stickyNav, {
 });
 
 headerObserver.observe(el.header);
+
+// reveal sections
+const sectionObserver = new IntersectionObserver(method.revealSections, {
+  root:null,
+  threshold : .15 
+});
+
+el.allSections.forEach(section => {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});

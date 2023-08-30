@@ -19,3 +19,5 @@ export const nav = document.querySelector('.nav');
 
 export const header = document.querySelector('.header');
 export const navHeight = nav.getBoundingClientRect().height;
+
+export const allSections = document.querySelectorAll('.section');
