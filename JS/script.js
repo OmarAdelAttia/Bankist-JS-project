@@ -50,7 +50,7 @@ el.allSections.forEach(section => {
 const imgObserver = new IntersectionObserver(method.loadImg, {
   root: null,
   threshold: 0,
-  rootMargin: '200px'
+  rootMargin: '100px'
 });
 
 el.imgs.forEach(img => imgObserver.observe(img));
