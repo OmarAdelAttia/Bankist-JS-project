@@ -45,3 +45,12 @@ el.allSections.forEach(section => {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
 });
+
+// lazy loading images
+const imgObserver = new IntersectionObserver(method.loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px'
+});
+
+el.imgs.forEach(img => imgObserver.observe(img));

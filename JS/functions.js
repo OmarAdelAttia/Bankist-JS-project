@@ -1,7 +1,5 @@
 import * as el from './elements.js'
 
-// styles
-
 // Hide Modal
 export const openModal = function () {
     el.modal.classList.remove('hidden');
@@ -88,5 +86,16 @@ export const revealSections = (entries, observer) => {
     const [entry] = entries;
     if (!entry.isIntersecting) return;
     entry.target.classList.remove('section--hidden');
+    observer.unobserve(entry.target);
+}
+
+export const loadImg = (entries, observer) => {
+    const [entry] = entries;
+    if (!entry.isIntersecting) return;
+    // replace src with data-src
+    entry.target.src = entry.target.dataset.src;
+    // remove blur class
+    entry.target.addEventListener('load', () => entry.target.classList.remove('lazy-img'));
+    // stop observe
     observer.unobserve(entry.target);
 }
