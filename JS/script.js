@@ -51,21 +51,38 @@ const imgObserver = new IntersectionObserver(method.loadImg, {
 
 el.imgs.forEach(img => imgObserver.observe(img));
 
-// slider
-method.slideDirection();
 
+// slider
 let currSlide = 0;
 
 const sliderBtn = direction => {
-  if (direction) {
-    currSlide === el.maxslide - 1 ? currSlide = 0 : currSlide++;   
-  } else {
-    !currSlide ? currSlide = el.maxslide - 1 : currSlide--;
+  if (direction === 'Right') {
+    currSlide === el.maxslide - 1 ? currSlide = 0 : currSlide++;
+  } else if (direction === 'Left') {
+    !currSlide ? (currSlide = el.maxslide - 1) : currSlide--;
   }
   method.slideDirection(currSlide);
-}
+  method.activateDot(currSlide);
+};
 
-el.sliderBtnRight.addEventListener('click', (direction = true) => sliderBtn(direction));
+el.sliderBtnRight.addEventListener('click', (direction = 'Right') => sliderBtn(direction));
 
-el.sliderBtnLeft.addEventListener('click', (direction = false) => sliderBtn(direction));
+el.sliderBtnLeft.addEventListener('click', (direction = 'Left') => sliderBtn(direction));
 
+// slide using arrow keys
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') sliderBtn('Right');
+  if (e.key === 'ArrowLeft') sliderBtn('Left');
+});
+
+
+// clicking the dots
+el.dotContainer.addEventListener('click', e => {
+  const { slide } = e.target.dataset;
+  currSlide = Number(slide);
+  method.slideDirection(slide);
+  method.activateDot(slide);
+});
+
+// creating dots
+method.init();

@@ -24,8 +24,9 @@ export const allSections = document.querySelectorAll('.section');
 
 export const imgs = document.querySelectorAll('img[data-src]');
 
-// export const slider = document.querySelector('.slider');
 export const slides = document.querySelectorAll('.slide');
 export const sliderBtnLeft = document.querySelector('.slider__btn--left');
 export const sliderBtnRight = document.querySelector('.slider__btn--right');
 export const maxslide = slides.length;
+
+export const dotContainer = document.querySelector('.dots');
