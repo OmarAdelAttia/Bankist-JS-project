@@ -29,7 +29,7 @@ export const navScroll = event => {
   // Matching Strategy
   if (event.target.classList.contains('nav__link')) {
     const id = event.target.getAttribute('href');
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+    if (id !== '#') document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
 };
 
